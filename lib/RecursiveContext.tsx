@@ -4,7 +4,7 @@ import { createAPIProxy } from './ApiProxy'
 import { useControllableState } from './hooks/useControllableState'
 import { useCurrentRef } from './hooks/useCurrentRef'
 
-type RecursiveContextProps<TProps extends object> = TProps & {
+export type RecursiveContextProviderProps<TProps extends object> = TProps & {
     onChange?: (props: TProps) => void
     children: React.ReactNode
 }
@@ -29,7 +29,7 @@ export function createRecursiveContext<
 
     const useInternalRecursiveContext = () => React.useContext(Context)
 
-    function RecursiveContext({ children, onChange, ...props }: RecursiveContextProps<TProps>) {
+    function RecursiveContext({ children, onChange, ...props }: RecursiveContextProviderProps<TProps>) {
         const [propsState, setProps] = useControllableState<TProps>({
             prop: Object.keys(props).length ? (props as TProps) : undefined,
             defaultProp: defaultProps,
