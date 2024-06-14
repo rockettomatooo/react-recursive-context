@@ -1,11 +1,13 @@
 {
     "name": "react-recursive-context",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "author": "Samuel Stecher <samuel@samuelstecher.dev>",
     "license": "MIT",
     "files": [
         "build"
     ],
+    "main": "./build/index.cjs.js",
+    "module": "./build/index.es.js",
     "types": "./build/index.d.ts",
     "exports": {
         ".": {
