@@ -6,6 +6,10 @@ export default defineConfig({
         setupFiles: ['./test/setupTests.ts'],
         globals: true,
         environment: 'jsdom',
+        coverage: {
+            allowExternal: true,
+            exclude: ['**/node_modules/**', '**/test/**', '**/build/**'],
+        },
     },
     resolve: {
         alias: {

@@ -29,7 +29,10 @@ export type RecursiveContextApiObject<TProps> = {
     [key: string]: RecursiveContextApiFn<TProps>
 }
 
-export type RecursiveContextPublicApi<TProps, TAPI extends RecursiveContextApiObject<TProps>> = {
+export type RecursiveContextPublicApi<
+    TProps,
+    TAPI extends RecursiveContextApiObject<TProps> = RecursiveContextApiObject<TProps>
+> = {
     [key in keyof TAPI]: (...args: RecursiveContextApiPureArgs<TAPI[key]>) => RecursiveContextApiReturnType<TAPI[key]>
 }
 
